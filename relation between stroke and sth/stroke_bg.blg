@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/W32TeX)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: stroke_bg.aux
+The style file: plain.bst
+Database file #1: bibtex.bib
+Warning--can't use both volume and number fields in rochester2002respiratory
+You've used 8 entries,
+            2118 wiz_defined-function locations,
+            558 strings with 6019 characters,
+and the built_in function-call counts, 3696 in all, are:
+= -- 351
+> -- 244
+< -- 2
++ -- 96
+- -- 88
+* -- 334
+:= -- 627
+add.period$ -- 25
+call.type$ -- 8
+change.case$ -- 68
+chr.to.int$ -- 0
+cite$ -- 9
+duplicate$ -- 100
+empty$ -- 232
+format.name$ -- 88
+if$ -- 730
+int.to.chr$ -- 0
+int.to.str$ -- 8
+missing$ -- 8
+newline$ -- 43
+num.names$ -- 16
+pop$ -- 55
+preamble$ -- 1
+purify$ -- 60
+quote$ -- 0
+skip$ -- 69
+stack$ -- 0
+substring$ -- 246
+swap$ -- 20
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 32
+warning$ -- 1
+while$ -- 32
+width$ -- 9
+write$ -- 92
+(There was 1 warning)
