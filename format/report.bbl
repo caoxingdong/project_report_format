@@ -1,11 +1,13 @@
 \begin{thebibliography}{1}
 
-\bibitem{arcelus2007integration}
-Amaya Arcelus, Megan~Howell Jones, Rafik Goubran, and Frank Knoefel.
-\newblock Integration of smart home technologies in a health monitoring system
-  for the elderly.
-\newblock In {\em 21st International Conference on Advanced Information
-  Networking and Applications Workshops (AINAW'07)}, volume~2, pages 820--825.
-  IEEE, 2007.
+\bibitem{cortes1995support}
+Corinna Cortes and Vladimir Vapnik.
+\newblock Support-vector networks.
+\newblock {\em Machine learning}, 20(3):273--297, 1995.
+
+\bibitem{liaw2002classification}
+Andy Liaw, Matthew Wiener, et~al.
+\newblock Classification and regression by randomforest.
+\newblock {\em R news}, 2(3):18--22, 2002.
 
 \end{thebibliography}

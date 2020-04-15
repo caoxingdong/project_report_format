@@ -10,6 +10,8 @@
 \renewcommand\thesection{\Roman{section}}
 \renewcommand\thesubsection{\Alph{subsection}}
 
+\usepackage{diagbox}
+
 \usepackage{titlesec}
 \titlelabel{\thetitle.\quad}
 \titleformat*{\section}{\centering}
@@ -85,16 +87,75 @@
 	\maketitle
 	
 	\section{\textsc{Introduction and objectives}}
-		One of the many applications for a smart system is the ability to provide an automated assessment of health. In the current aging population, “the challenges of maintaining mobility and cognitive function make it increasingly difficult to remain living alone therefore forcing many people to seek residence in clinical institutions” \cite{arcelus2007integration}.
+		One of the many applications for a smart system is the ability to provide an automated assessment of health. In the current aging population, “the challenges of maintaining mobility and cognitive function make it increasingly difficult to remain living alone therefore forcing many people to seek residence in clinical institutions”.
 		
 	\section{\textsc{Framework}}
 		This section describes the proposed approach of using only skeleton points in recognizing a human activity. Fig. 1 illustrates the overall design of the recognition system. The system consists of 4 main components: database, skeleton parser, classifier, and output.
 		\subsection{Databases}
 		\subsection{Skeleton Parser}
 		\subsection{Classifier}
+		In this project, we use two kinds of classifiers, support vector machine(SVM) and random forest. A SVM classifier projects the data onto a higher dimension so that it is possible to divide the data into separable groups\cite{cortes1995support}. Random forest generates many classifiers and aggregates their results\cite{liaw2002classification}.
+		
+		1) Training: We have extracted two sets of features, the first set contains 44 subjects and their corresponding estimated breathing rate, apneia and motion difference features, the second set contains the same 44 subjects and face position information of each frame of the video. We will train the classifiers using these two sets separately and together, to see if there is any improvement. The labels we are to predict are Motion and Face. Motion Label has 3 classes, no moving, one side moving, and both sides moving. Face label has 2 classes, dropping face and no dropping face.
+		
+		2) Testing: Due to the lack of data, we leave 1 sample as testing set, use the other 43 samples as training set, and iterate this process for 44 times, to get to average of accuracy.
+		
 		\subsection{Permormance Metric}
 	\section{\textsc{Experimental results}}
 	
+		\begin{table}[h!]
+			\begin{center}
+				\caption{Result using feature set 1}
+				\label{tab:table1}
+				\begin{tabular}{|c|c|c|} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+					\hline
+					 \diagbox{Clf}{Acc}{Label} & Motion & Face\\
+					\hline
+					SVM & 17/44 & 30/44\\
+					\hline
+					Random forest & 27/44 & 25/44 \\
+					\hline
+				\end{tabular}
+			\end{center}
+		\end{table}
+	
+			\begin{table}[h!]
+		\begin{center}
+			\caption{Result using feature set 2}
+			\label{tab:table2}
+			\begin{tabular}{|c|c|c|} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+				\hline
+				\diagbox{Clf}{Acc}{Label} & Motion & Face\\
+				\hline
+				SVM & 17/44 & 26/44\\
+				\hline
+				Random forest & 19/44 & 36/44 \\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
+	
+	\begin{table}[h!]
+		\begin{center}
+			\caption{Result using combined feature}
+			\label{tab:table3}
+			\begin{tabular}{|c|c|c|} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+				\hline
+				\diagbox{Clf}{Acc}{Label} & Motion & Face\\
+				\hline
+				SVM & 17/44 & 29/44\\
+				\hline
+				Random forest & 26/44 & 36/44 \\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
+	
+		The results are shown in Table \ref{tab:table1}, \ref{tab:table2} and \ref{tab:table3}. Table \ref{tab:table1} is the result by using only feature set 1, Table \ref{tab:table2} is the result by using only feature set 2, and Table \ref{tab:table3} is the result by using the combined feature set. By using each feature set, we use SVM and random forest to predict motion class and face class. \\
+		By observing the results, We can get the following conclusions:\\
+		1) SVM doesn't work well in motion class prediction, the accuracy is $39\%$, just a little higher than random guess($33\%$);\\
+		2) Feature set 2 works well in face class prediction, as the features are more related with face characteristic;\\
+		3) Table \ref{tab:table3} has almost the best result, so using combined features can help improve classifier performance.\\
 	\section{\textsc{Future Work}}
 	
 	\section{\textsc{Conclusions}}
